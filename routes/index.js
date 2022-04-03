@@ -17,13 +17,20 @@ var upload = multer({
         fileSize: 2 * 1024
     }
 }).single('avatar');
-
 var upload2 = multer({
     storage: storage,
+    fileFilter: (req, file, cb) => {
+        if ( file.mimetype == "image/jpeg") {
+            cb(null, true);
+        } else {
+            cb(null, false);
+            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+    },
     limit: {
         fileSize: 2 * 1024
     }
-}).array('avatar',5);
+}).array('avatar', 5);
 
 router.get('/', function (req, res, next) {
     res.render('index', {title: 'Express'});
@@ -39,7 +46,7 @@ router.post('/profile', function (req, res, next) {
             });
         } else {
             res.render('index', {
-                title: 'Upload thành công!!!!,',message:'Thành công'
+                title: 'Upload thành công!!!!,', message: 'Thành công'
             });
         }
     })

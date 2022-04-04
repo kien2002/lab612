@@ -1,20 +1,4 @@
 <!DOCTYPE html>
-<!--<html>-->
-<!--<head>-->
-<!--    <title><%= title %></title>-->
-<!--    <link rel='stylesheet' href='/stylesheets/style.css'/>-->
-<!--</head>-->
-<!--<body>-->
-<!--<form action="/profile" method="post" enctype="multipart/form-data">-->
-<!--    <input type="file" name="avatar"/>-->
-<!--    <button type="submit">Save</button>-->
-<!--</form>-->
-<!--<form action="/profilearray" method="post" enctype="multipart/form-data">-->
-<!--    <input type="file" name="avatar" multiple/>-->
-<!--    <button type="submit">Save Nhieu File</button>-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,14 +13,12 @@
 <body>
 <div class="container col-md-6">
     <div class="mb-5">
+        <h1><%= title%></h1>
         <form action="/profile" method="post" enctype="multipart/form-data">
             <label for="Image" class="form-label" style="margin-top:30px "> Upload Ảnh</label>
             <input class="form-control" type="file" name="avatar" multiple/>
             <button type="submit" class="btn btn-primary mt-3">Upload</button>
         </form>
-        <!--        <label for="Image" class="form-label">Bootstrap 5 image Upload with Preview</label>-->
-        <!--        <input class="form-control" type="file" id="formFile" onchange="preview()" multiple>-->
-        <!--        <button onclick="clearImage()" class="btn btn-primary mt-3">Click me</button>-->
     </div>
     <img id="frame" src="" class="img-fluid"/>
 </div>

@@ -11,7 +11,6 @@ var storage = multer.diskStorage({
 
     },
 });
-
 var upload = multer({
     storage: storage, limit: {
         fileSize: 2 * 1024
@@ -24,7 +23,7 @@ var upload2 = multer({
             cb(null, true);
         } else {
             cb(null, false);
-            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+            return cb(new Error('Chỉ nhận file jpg'));
         }
     },
     limit: {
@@ -33,7 +32,7 @@ var upload2 = multer({
 }).array('avatar', 5);
 
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Express'});
+    res.render('index', {title: 'Upload'});
 });
 // router.post('/profile', upload.single('avatar'), function (req, res, next) {
 //     res.render('index', {title: 'Upload',message:"Thành công"});
@@ -46,7 +45,7 @@ router.post('/profile', function (req, res, next) {
             });
         } else {
             res.render('index', {
-                title: 'Upload thành công!!!!,', message: 'Thành công'
+                title: 'Upload thành công !!!!'
             });
         }
     })

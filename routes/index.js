@@ -3,7 +3,7 @@ var router = express.Router();
 var multer = require('multer');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'views/uploads/');
+        cb(null, 'views/');
     },
     filename: function (req, file, cb) {
         var random = Math.random();
